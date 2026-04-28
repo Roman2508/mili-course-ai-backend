@@ -14,6 +14,8 @@ export function createBetterAuth(
   prisma: PrismaClient,
   options: BetterAuthFactoryOptions,
 ) {
+  const sameSite = options.isProduction ? 'none' : 'lax';
+
   return betterAuth({
     appName: 'Mili Course AI',
     baseURL: options.baseURL,
@@ -93,7 +95,7 @@ export function createBetterAuth(
       cookiePrefix: 'mili-course-ai',
       defaultCookieAttributes: {
         httpOnly: true,
-        sameSite: 'lax',
+        sameSite,
         secure: options.isProduction,
         path: '/',
       },
