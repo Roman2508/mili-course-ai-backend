@@ -49,7 +49,7 @@ export class AppConfigService {
   }
 
   get isProduction(): boolean {
-    return this.nodeEnv === 'production';
+    return this.nodeEnv !== 'development';
   }
 }
 
