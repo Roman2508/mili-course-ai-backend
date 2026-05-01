@@ -33,6 +33,10 @@ export function createBetterAuth(
     },
     user: {
       modelName: 'user',
+      changeEmail: {
+        enabled: true,
+        updateEmailWithoutVerification: true,
+      },
       additionalFields: {
         role: {
           type: ['student', 'admin'],
